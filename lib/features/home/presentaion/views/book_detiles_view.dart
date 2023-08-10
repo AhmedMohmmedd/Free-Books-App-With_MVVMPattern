@@ -11,7 +11,6 @@ class BookDatailsView extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: BookDatalisViewBody(),
-        
       ),
     );
   }

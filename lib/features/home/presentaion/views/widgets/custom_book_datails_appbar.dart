@@ -7,7 +7,7 @@ class CoustomBookDatailsAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children:  [
+      children: [
         IconButton(
           onPressed: () {},
           icon: const Icon(Icons.close),

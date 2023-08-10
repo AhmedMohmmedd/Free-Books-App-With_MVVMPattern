@@ -17,15 +17,15 @@ class BookDatalisViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: const [
-                 CoustomBookDatailsAppBar(),
-                 BookDatalisSection(),
-                 Expanded(
+                CoustomBookDatailsAppBar(),
+                BookDatalisSection(),
+                Expanded(
                   child: SizedBox(
                     height: 50,
                   ),
                 ),
                 SimailarBooksSection(),
-                 SizedBox(
+                SizedBox(
                   height: 40,
                 ),
               ],
@@ -36,6 +36,3 @@ class BookDatalisViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
