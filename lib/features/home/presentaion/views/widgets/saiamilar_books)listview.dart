@@ -12,9 +12,9 @@ class SaiamilarBookListView extends StatelessWidget {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const Padding(
+            return   Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
-              child: CustomBookImage(),
+              child: CustomBookImage(imageUrl: 'https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=960',),
             );
           }),
     );
