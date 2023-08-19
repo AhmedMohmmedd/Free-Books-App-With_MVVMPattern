@@ -9,6 +9,8 @@ import 'package:go_router/go_router.dart';
 import '../../features/Splash/presentaion/views/Splash_View.dart';
 import '../../features/home/presentaion/manger/similar_books_cubit/similar_books_cubit.dart';
 import '../../features/home/presentaion/views/book_detiles_view.dart';
+import '../../features/search/data/repos/search_repo_impl.dart';
+import '../../features/search/presention/manger/search_result_cubit/search_result_cubit.dart';
 
 abstract class AppRouter {
   static const KHomeView = '/homeView';
@@ -38,7 +40,12 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: KSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) =>  BlocProvider(
+          create: (context) => SearchResultCubit(
+            getIt.get<SearchRepoImpl>()
+          ),
+          child:const SearchView(),
+        ),
       ),
     ],
   );

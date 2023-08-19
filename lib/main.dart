@@ -13,6 +13,9 @@ import 'core/utils/app_router.dart';
 import 'features/Splash/presentaion/views/Splash_View.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'features/search/data/repos/search_repo_impl.dart';
+import 'features/search/presention/manger/search_result_cubit/search_result_cubit.dart';
+
 void main() {
   setupServicLocator();
   runApp(const bookly());

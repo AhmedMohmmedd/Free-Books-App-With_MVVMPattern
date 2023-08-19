@@ -1,19 +1,19 @@
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/home/presentaion/views/widgets/custom_book_item.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bookly/core/utils/app_router.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../../constants.dart';
-import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import 'book_rating.dart';
+import '../../../../../core/widghts/custom_book_rating.dart';
+import '../../../../home/data/models/book_model/book_model.dart';
+import 'custom_book_item.dart';
 
-class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key, required this.bookModel});
-
+class SearchResultItem extends StatelessWidget {
+  const SearchResultItem({super.key, required this.bookModel});
   final BookModel bookModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,8 +24,11 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            CustomBookImage(
-                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? AssetsData.nullImage),
+            CustomBookItem(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                    AssetsData.nullImage),
+            //'https://images.justwatch.com/poster/289064948/s718/house-of-the-dragon.%7Bformat%7D'
+
             const SizedBox(
               width: 30,
             ),
@@ -61,7 +64,7 @@ class BookListViewItem extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.w200),
                       ),
                       const Spacer(),
-                      BookRating(
+                      CustomBookRating(
                           rating: bookModel.volumeInfo.maturityRating!,
                           bookCount: bookModel.volumeInfo.pageCount!),
                     ],

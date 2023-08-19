@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class BookDatalisSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
           child:  CustomBookImage(
-            imageUrl:book.volumeInfo.imageLinks?.thumbnail ?? '' ,          ),
+            imageUrl:book.volumeInfo.imageLinks?.thumbnail ?? AssetsData.nullImage ,          ),
         ),
         const SizedBox(
           height: 43,
