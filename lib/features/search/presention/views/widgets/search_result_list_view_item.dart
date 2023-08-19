@@ -50,8 +50,9 @@ class SearchResultItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0]?? 'UnKnown',
                     style: Styles.textStyle14,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(
                     height: 5,
@@ -66,7 +67,7 @@ class SearchResultItem extends StatelessWidget {
                       const Spacer(),
                       CustomBookRating(
                           rating: bookModel.volumeInfo.maturityRating!,
-                          bookCount: bookModel.volumeInfo.pageCount!),
+                          bookCount: bookModel.volumeInfo.pageCount ?? 0  ),
                     ],
                   )
                 ],

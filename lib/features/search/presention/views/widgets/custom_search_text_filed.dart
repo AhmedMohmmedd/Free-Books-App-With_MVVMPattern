@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../home/data/models/book_model/book_model.dart';
 import '../../../data/repos/search_repo_impl.dart';
 import '../../manger/search_result_cubit/search_result_cubit.dart';
 
 class CustomSearchTextFiled extends StatelessWidget {
-  const CustomSearchTextFiled({super.key,});
-
+  CustomSearchTextFiled({
+    super.key,
+    this.searchItem,
+  });
+  String? searchItem;
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value) {},
+      onChanged: (value) {
+        searchItem = value  ;
+      },
+      onSubmitted: (value) {
+        BlocProvider.of<SearchResultCubit>(context).fetchSearchResultBooks(
+          searchItem: value);
+            BlocProvider.of<SearchResultCubit>(context)
+                   .searchItem = value ;
+                 
+      },
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white),

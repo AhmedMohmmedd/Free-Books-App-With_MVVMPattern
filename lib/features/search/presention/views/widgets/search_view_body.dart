@@ -16,21 +16,19 @@ class SearchViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const  [
-          SizedBox(
+        children:   [
+        const  SizedBox(
             height: 24,
           ),
-          CustomSearchTextFiled(
-
-          ),
-          SizedBox(
+          CustomSearchTextFiled( ),
+      const    SizedBox(
             height: 16,
           ),
-          Text(
+      const    Text(
             'Search Result',
             style: Styles.textStyle18,
           ),
-          SizedBox(
+       const   SizedBox(
             height: 16,
           ),
           Expanded(

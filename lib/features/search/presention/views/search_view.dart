@@ -17,7 +17,9 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   void initState() {
-    BlocProvider.of<SearchResultCubit>(context).fetchSearchResultBooks();
+    BlocProvider.of<SearchResultCubit>(context).fetchSearchResultBooks(
+  
+    );
     super.initState();
   }
 
