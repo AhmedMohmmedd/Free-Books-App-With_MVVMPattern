@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -6,8 +7,8 @@ import 'book_rating.dart';
 import 'custom_book_item.dart';
 
 class BookDatalisSection extends StatelessWidget {
-  const BookDatalisSection({super.key});
-
+  const BookDatalisSection({super.key, required this.book});
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -16,17 +17,16 @@ class BookDatalisSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
-          child: CustomBookImage(
-            imageUrl:
-                'https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=960',
-          ),
+          child:  CustomBookImage(
+            imageUrl:book.volumeInfo.imageLinks?.thumbnail ?? '' ,          ),
         ),
         const SizedBox(
           height: 43,
         ),
         Text(
-          'The Jungle Book',
+          book.volumeInfo.title!,
           style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
@@ -34,7 +34,7 @@ class BookDatalisSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'Rudyard Kipling',
+            book.volumeInfo.authors?[0] ??' ',
             style: Styles.textStyle18.copyWith(
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
           ),
@@ -42,9 +42,9 @@ class BookDatalisSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
+         BookRating(
           rating: '9',
-          bookCount: 24,
+          bookCount:book.volumeInfo.pageCount?? 0,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(

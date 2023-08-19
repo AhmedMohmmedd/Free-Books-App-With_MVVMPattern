@@ -7,20 +7,21 @@ class CustomBotton extends StatelessWidget {
     required this.backgroundColor,
     required this.textColor,
     this.borderRadius,
-    required this.text,
-    this.fontSize,
+    required this.text, this.fontSize,
+    // this.fontSize, this.onPressed,
   });
   final Color backgroundColor;
   final Color textColor;
   final BorderRadius? borderRadius;
   final String text;
   final double? fontSize;
+  // final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
       child: TextButton(
-          onPressed: () {},
+          onPressed:(){},
           style: TextButton.styleFrom(
             backgroundColor: backgroundColor,
             shape: RoundedRectangleBorder(
@@ -37,3 +38,8 @@ class CustomBotton extends StatelessWidget {
     );
   }
 }
+
+
+
+// <key>UIApplicationSupportsIndirectInputEvents</key>
+// 	<true/>

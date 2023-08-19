@@ -8,9 +8,12 @@ class customErrWidght extends StatelessWidget {
   final String errMasseg;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      errMasseg,
-      style: Styles.textStyle18,
+    return Center(
+      child: Text(
+        errMasseg,
+        style: Styles.textStyle18,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
