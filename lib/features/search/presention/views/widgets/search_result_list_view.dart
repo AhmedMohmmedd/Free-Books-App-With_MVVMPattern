@@ -14,17 +14,18 @@ class SearchResultListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SearchResultCubit, SearchResultState>(
       builder: (context, state) {
+        
         if (state is SearchResultSuccess) {
           return ListView.builder(
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return  Padding(
+                return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   // child: BookListViewItem(),
                   child: SearchResultItem(
-                    bookModel:state.books[index] ,
+                    bookModel: state.books[index],
                   ),
                 );
               });
@@ -33,10 +34,9 @@ class SearchResultListView extends StatelessWidget {
             errMasseg: state.errMessage,
           );
         } else {
-          return const customLodingIndicator();
+          return const Text('');
         }
       },
     );
-    
   }
 }

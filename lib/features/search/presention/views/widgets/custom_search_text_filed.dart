@@ -15,36 +15,40 @@ class CustomSearchTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       onChanged: (value) {
-        searchItem = value  ;
+        searchItem = value;
       },
       onSubmitted: (value) {
-        BlocProvider.of<SearchResultCubit>(context).fetchSearchResultBooks(
-          searchItem: value);
-            BlocProvider.of<SearchResultCubit>(context)
-                   .searchItem = value ;
-                 
+        searchItem = value;
+        BlocProvider.of<SearchResultCubit>(context)
+            .fetchSearchResultBooks(searchItem: value);
+        BlocProvider.of<SearchResultCubit>(context).searchItem = value;
       },
       decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.circular(
-              12,
-            ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(
+            12,
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.circular(
-              12,
-            ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(
+            12,
           ),
-          hintText: 'Search',
-          suffixIcon: IconButton(
-            onPressed: () {},
-            icon: const Opacity(
-              opacity: .5,
-              child: Icon(Icons.search),
-            ),
-          )),
+        ),
+        hintText: 'Search',
+        suffixIcon: GestureDetector(
+          onTap: () {
+            BlocProvider.of<SearchResultCubit>(context)
+                .fetchSearchResultBooks(searchItem: searchItem);
+            BlocProvider.of<SearchResultCubit>(context).searchItem = searchItem;
+          },
+          child: const Opacity(
+            opacity: .5,
+            child: Icon(Icons.search),
+          ),
+        ),
+      ),
     );
   }
 }
