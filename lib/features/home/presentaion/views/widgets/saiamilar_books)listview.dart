@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widghts/loding_handling/similar_book_listview_loding.dart';
 import 'custom_book_item.dart';
 
 class SaiamilarBookListView extends StatelessWidget {
@@ -42,7 +43,7 @@ class SaiamilarBookListView extends StatelessWidget {
         } else if (state is SimilarBooksFualier) {
           return customErrWidght(errMasseg: state.errMessage);
         } else {
-          return const customLodingIndicator();
+          return const similarBookLoding();
         }
       },
     );

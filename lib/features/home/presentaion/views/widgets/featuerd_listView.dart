@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widghts/custom_errWidght.dart';
 import '../../../../../core/widghts/custom_loding_indicator.dart';
+import '../../../../../core/widghts/loding_handling/featuerd_book_loding.dart';
 import 'custom_book_item.dart';
 
 class FeatureBooksListView extends StatelessWidget {
@@ -49,7 +50,7 @@ class FeatureBooksListView extends StatelessWidget {
             errMasseg: state.errMessage,
           );
         } else {
-          return const customLodingIndicator();
+          return const FeatyerdBookLoding();
         }
       },
     );
